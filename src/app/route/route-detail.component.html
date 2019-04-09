@@ -1,0 +1,111 @@
+<div class="panel panel-primary" *ngIf="mockRoute">
+  <div class="panel-heading">
+    <h3 class="panel-title">Route Information</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="model">Source</label>
+      <input id="model" class="form-control" [(ngModel)]="mockRoute.source" />
+    </div>
+
+    <div class="form-group">
+      <label for="make">Destination</label>
+      <input id="make" class="form-control" [(ngModel)]="mockRoute.destination" />
+    </div>
+
+    <div class="form-group">
+      <label for="make">Vehicle ID</label>
+      <input id="make" class="form-control" [(ngModel)]="mockRoute.vehicleId" />
+    </div>
+
+    <div class="form-group">
+      <label for="make">Driver ID</label>
+      <input id="make" class="form-control" [(ngModel)]="mockRoute.driverId" />
+    </div>
+
+    <div class="form-group">
+      <label for="make">Route ID</label>
+      <input id="make" class="form-control" [(ngModel)]="routeId" />
+    </div>
+
+    <div class="panel-footer">
+      <button class="btn btn-primary" (click)="save()">Simulate</button>
+      <button class="btn btn-primary" (click)="simulateToSocketService()">Simulate to Socket Service</button>
+      <button class="btn btn-default" (click)="cancel()">Cancel</button>
+      <button class="btn btn-default" (click)="createRoute()">Create Route</button>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="panel panel-primary">
+
+  <div class="panel-heading clearfix">
+    <span>Panel Heading</span>
+    <div class="btn-group pull-right">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
+        <i class="glyphicon glyphicon-cog"></i>
+      </button>
+     
+      <button data-toggle="collapse" data-target="#mapsPanelBody" class="btn btn-primary" >
+        <i class="glyphicon glyphicon-minus"></i>    
+      </button>
+
+     
+    </div>
+
+  </div>
+
+  <div id="mapsPanelBody" class="panel-body panel-collapse collapse in">
+  
+    <div class="row">
+      <div class="col-xs-12">
+        <div #map style="width: 100%; height: 500px"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div id="locationModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Centre</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="panel panel-primary">
+
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label for="latitudeId">Latitude</label>
+              <input class="form-control" id="latitudeId" type="number" [(ngModel)]="lat"/>
+            </div>
+
+            <div class="form-group">
+              <label for="longitudeId">Longitude</label>
+              <input class="form-control" id="longitudeId" type="number" [(ngModel)]="lng"/>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary"  (click)="changeCentre()">Change Centre</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
