@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import {Route} from './route';
-import {HOSTNAME, PUBLISHER_PORT, GATEWAYSERVICE_PORT, WEBSOCKET_PORT} from '../../environments/environment';
+import {HOSTNAME, PUBLISHER_PORT, WEBSOCKET_HOSTNAME, WEBSOCKET_PORT, ROUTESERVICE_HOSTNAME, ROUTESERVICE_PORT} from '../../environments/environment';
 import {Marker} from './logfeed';
 import { RouteInfo } from './route-info';
 
@@ -24,17 +24,21 @@ export class MockRouteService {
 
     simulateRoute(marker: Marker):  Observable<Marker>{
         let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-        return this.http.post<Marker>('http://'+HOSTNAME+':'+PUBLISHER_PORT+'/log-feed/', marker, options);       
+        //return this.http.post<Marker>('http://'+HOSTNAME+':'+PUBLISHER_PORT+'/log-feed/', marker, options);     
+        return this.http.post<Marker>('/logfeed-api/log-feed/', marker, options);
     }
 
     simulateRouteToSocketService(marker: Marker):  Observable<Marker>{
-        let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-        return this.http.post<Marker>('http://'+HOSTNAME+':'+WEBSOCKET_PORT+'/log/', marker, options);       
+        let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };        
+        //return this.http.post<Marker>('http://'+WEBSOCKET_HOSTNAME+':'+WEBSOCKET_PORT+'/log/', marker, options);  
+        return this.http.post<Marker>('/websocket-api/log/', marker, options);     
     }
     
     createRoute(route: RouteInfo): Observable<string> {
         let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json' };
-        return this.http.post<string>('http://'+HOSTNAME+':'+GATEWAYSERVICE_PORT+'/route-service/route1/', route, options);
+        //return this.http.post<string>('http://'+ROUTESERVICE_HOSTNAME+':'+ROUTESERVICE_PORT+'/route/', route, options);
+        return this.http.post<string>('/route-api/route/', route, options);
+        
     }
 
 

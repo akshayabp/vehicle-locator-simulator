@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "build-docker": "ng build --configuration=docker",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,7 +24,6 @@
     "core-js": "^2.5.4",
     "rxjs": "6.3.3",
     "zone.js": "~0.8.26",
-
     "jquery": "^3.3.1",
     "bootstrap": "^3.3.7"
   },

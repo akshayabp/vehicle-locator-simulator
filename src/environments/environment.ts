@@ -13,10 +13,13 @@ export const environment = {
  * because it will have a performance impact when errors are thrown
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-export const HOSTNAME:string =location.hostname;
+//export const HOSTNAME:string =location.hostname;
+export const HOSTNAME:string ="35.239.88.80";
+export const WEBSOCKET_HOSTNAME = '35.202.187.226';
+export const ROUTESERVICE_HOSTNAME = '35.224.68.94';
 
+export const ROUTESERVICE_PORT: number = 8083;
+export const WEBSOCKET_PORT: number = 8084;
 export const PORT:number = 8085;
 export const PUBLISHER_PORT:number = 8082;
-export const WEBSOCKET_PORT:number = 8084;
-export const ROUTESERVICE_PORT:number = 8083;
 export const GATEWAYSERVICE_PORT:number = 5555;

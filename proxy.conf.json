@@ -1,0 +1,29 @@
+{
+  "/logfeed-api/*": {
+    "target": "http://3.91.206.177:8082/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/logfeed-api": ""
+    }
+  }, 
+  "/route-api/*": {
+    "target": "http://3.91.206.177:8083",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/route-api": ""
+    }
+  }, 
+    "/websocket-api/*" : {
+      "target": "http://3.91.206.177:8084/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,     
+      "pathRewrite": {
+        "^/websocket-api": ""
+      }
+  }
+}
